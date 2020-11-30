@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../stores/login_store.dart';
 import '../widgets/custom_icon_button.dart';
 import '../widgets/custom_text_field.dart';
 import 'list_screen.dart';
@@ -9,18 +10,19 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  LoginStore loginStore = LoginStore();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Container(
           alignment: Alignment.center,
-          margin: const EdgeInsets.all(32),
+          margin: const EdgeInsets.all(24),
           child: Card(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(24),
             ),
-            elevation: 16,
+            elevation: 20,
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -30,50 +32,46 @@ class _LoginScreenState extends State<LoginScreen> {
                     hint: 'E-mail',
                     prefix: Icon(Icons.account_circle),
                     textInputType: TextInputType.emailAddress,
-                    onChanged: (email){
-
-                    },
+                    onChanged: loginStore.setEmail,
                     enabled: true,
                   ),
-                  const SizedBox(height: 16,),
+                  const SizedBox(
+                    height: 16,
+                  ),
                   CustomTextField(
                     hint: 'Senha',
                     prefix: Icon(Icons.lock),
                     obscure: true,
-                    onChanged: (pass){
-
-                    },
+                    onChanged: loginStore.setPassword,
                     enabled: true,
                     suffix: CustomIconButton(
                       radius: 32,
                       iconData: Icons.visibility,
-                      onTap: (){
-
-                      },
+                      onTap: () {},
                     ),
                   ),
-                  const SizedBox(height: 16,),
+                  const SizedBox(height: 16),
                   SizedBox(
-                    height: 44,
+                    height: 40,
                     child: RaisedButton(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32),
                       ),
                       child: Text('Login'),
                       color: Theme.of(context).primaryColor,
-                      disabledColor: Theme.of(context)
-                          .primaryColor.withAlpha(100),
+                      disabledColor: Theme.of(context).primaryColor,
                       textColor: Colors.white,
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context)=>ListScreen())
+                          MaterialPageRoute(
+                            builder: (context) => ListScreen()),
                         );
                       },
                     ),
                   )
                 ],
               ),
-            )
+            ),
           ),
         ),
       ),

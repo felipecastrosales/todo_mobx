@@ -19,7 +19,8 @@ class _ListScreenState extends State<ListScreen> {
           child: Column(
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 2),
+                padding: const EdgeInsets
+                    .symmetric(vertical: 16, horizontal: 2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -36,7 +37,7 @@ class _ListScreenState extends State<ListScreen> {
                       color: Colors.white,
                       onPressed: (){
                         Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context)=>LoginScreen())
+                          MaterialPageRoute(builder: (context) => LoginScreen())
                         );
                       },
                     ),
@@ -46,9 +47,9 @@ class _ListScreenState extends State<ListScreen> {
               Expanded(
                 child: Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(24),
                   ),
-                  elevation: 16,
+                  elevation: 20,
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Column(
@@ -66,7 +67,7 @@ class _ListScreenState extends State<ListScreen> {
                             },
                           ),
                         ),
-                        const SizedBox(height: 8,),
+                        const SizedBox(height: 8),
                         Expanded(
                           child: ListView.separated(
                             itemCount: 10,
