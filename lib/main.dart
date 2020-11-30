@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
       title: 'MobX Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.deepPurpleAccent,
-        cursorColor: Colors.deepPurpleAccent,
-        scaffoldBackgroundColor: Colors.deepPurpleAccent,
+        primaryColor: Colors.tealAccent[700],
+        cursorColor: Colors.tealAccent[700],
+        scaffoldBackgroundColor: Colors.tealAccent[700],
       ),
       home: LoginScreen(),
     );

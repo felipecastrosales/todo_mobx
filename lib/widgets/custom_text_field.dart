@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-
-  CustomTextField({this.hint, this.prefix, this.suffix, this.obscure = false,
-    this.textInputType, this.onChanged, this.enabled, this.controller
+  CustomTextField({
+    this.hint,
+    this.prefix,
+    this.suffix,
+    this.obscure = false,
+    this.textInputType,
+    this.onChanged,
+    this.enabled,
+    this.controller
   });
 
   final TextEditingController controller;
