@@ -10,10 +10,10 @@ class CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(radius),
-      child : Material(
+      child: Material(
         color: Colors.transparent,
-        child : InkWell(
-          child : Icon(iconData),
+        child: InkWell(
+          child: Icon(iconData),
           onTap: onTap,
         ),
       ),
