@@ -20,14 +20,19 @@ abstract class _LoginStore with Store {
   @action
   Future<void> setPassword(String value) async => password = value;
 
+  @observable
+  bool passwordVisible = false;
+  @action
+  void togglePasswordVisibility() => passwordVisible = !passwordVisible;
+
   @computed
   bool get isEmailValid => RegExp(
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
       .hasMatch(email);
 
   @computed
-  bool get isPassworValid => password.length > 6; 
+  bool get isPassworValid => password.length > 6;
 
-  @computed 
+  @computed
   bool get isFormValid => isEmailValid && isPassworValid;
 }
