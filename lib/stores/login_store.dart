@@ -6,8 +6,7 @@ class LoginStore = _LoginStore with _$LoginStore;
 abstract class _LoginStore with Store {
   _LoginStore() {
     autorun((_) {
-      print(email);
-      print(password);
+      print(isFormValid);
     });
   }
 
@@ -20,4 +19,15 @@ abstract class _LoginStore with Store {
   String password = '';
   @action
   Future<void> setPassword(String value) async => password = value;
+
+  @computed
+  bool get isEmailValid => RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(email);
+
+  @computed
+  bool get isPassworValid => password.length > 6; 
+
+  @computed 
+  bool get isFormValid => isEmailValid && isPassworValid;
 }
