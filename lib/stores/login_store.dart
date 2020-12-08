@@ -6,21 +6,27 @@ class LoginStore = _LoginStore with _$LoginStore;
 abstract class _LoginStore with Store {
   @observable
   String email = '';
+
+  // ignore: use_setters_to_change_properties
   @action
-  Future<void> setEmail(String value) async => email = value;
+  void setEmail(String value) => email = value;
 
   @observable
   String password = '';
+
+  // ignore: use_setters_to_change_properties
   @action
-  Future<void> setPassword(String value) async => password = value;
+  void setPassword(String value) => password = value;
 
   @observable
   bool passwordVisible = false;
+
   @action
   void togglePasswordVisibility() => passwordVisible = !passwordVisible;
 
   @observable
   bool loading = false;
+  
   @action
   Future<void> login() async {
     loading = true;
@@ -33,9 +39,9 @@ abstract class _LoginStore with Store {
       .hasMatch(email);
 
   @computed
-  bool get isPassworValid => password.length > 6;
+  bool get isPasswordValid => password.length > 6;
 
   @computed 
   Function get loginPressed => 
-      (isEmailValid && isPassworValid && !loading) ? login : null;
+      (isEmailValid && isPasswordValid && !loading) ? login : null;
 }
