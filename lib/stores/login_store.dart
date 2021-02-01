@@ -26,11 +26,16 @@ abstract class _LoginStore with Store {
 
   @observable
   bool loading = false;
-  
+
+  @observable
+  bool loggedIn = false;
+
   @action
   Future<void> login() async {
     loading = true;
     await Future.delayed(Duration(seconds: 2));
+    loading = false;
+    loggedIn = true;
   }
 
   @computed
@@ -39,9 +44,10 @@ abstract class _LoginStore with Store {
       .hasMatch(email);
 
   @computed
-  bool get isPasswordValid => password.length > 6;
+  bool get isPasswordValid => password.length >= 6;
 
-  @computed 
-  Function get loginPressed => 
+  @computed
+  Function get loginPressed =>
       (isEmailValid && isPasswordValid && !loading) ? login : null;
+
 }
