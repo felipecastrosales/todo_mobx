@@ -11,9 +11,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.tealAccent[700],
-        accentColor: Colors.tealAccent[700],
-        cursorColor: Colors.tealAccent[700],
+        accentColor: Colors.tealAccent,
         scaffoldBackgroundColor: Colors.tealAccent[700],
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: Colors.tealAccent[700],
+          selectionColor: Colors.tealAccent[700], 
+          selectionHandleColor: Colors.tealAccent[700],
+        ),
       ),
       home: LoginScreen(),
     );
