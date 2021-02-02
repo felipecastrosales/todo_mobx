@@ -12,7 +12,9 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
-  ListStore listStore = ListStore(); 
+  ListStore listStore = ListStore();
+  final TextEditingController controller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -39,9 +41,11 @@ class _ListScreenState extends State<ListScreen> {
                     IconButton(
                       icon: Icon(Icons.exit_to_app),
                       color: Colors.white,
-                      onPressed: (){
+                      onPressed: () {
                         Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => LoginScreen())
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen()
+                          ),
                         );
                       },
                     ),
@@ -59,38 +63,55 @@ class _ListScreenState extends State<ListScreen> {
                     child: Column(
                       children: <Widget>[
                         Observer(
-                          builder: (_){
+                          builder: (_) {
                             return CustomTextField(
+                              controller: controller,
                               hint: 'Tarefa',
                               onChanged: listStore.setNewToDoTitle,
-                              suffix: listStore.isFormValid ? CustomIconButton(
-                                radius: 32,
-                                iconData: Icons.add,
-                                onTap: listStore.addToDo,
-                              ) : null,
+                              suffix: listStore.isFormValid
+                                ? CustomIconButton(
+                                    radius: 32,
+                                    iconData: Icons.add,
+                                    onTap: () {
+                                      listStore.addToDo();
+                                      controller.clear();
+                                    }
+                                  )
+                                : null,
                             );
                           }
                         ),
                         const SizedBox(height: 8),
                         Expanded(
-                          child: Observer(
-                            builder: (_) {
-                              return ListView.separated(
-                                itemCount: listStore.toDoList.length,
-                                itemBuilder: (_, index){
-                                  return ListTile(
-                                    title: Text(listStore.toDoList[index]),
-                                    onTap: (){
-
-                                    },
-                                  );
-                                },
-                                separatorBuilder: (_, __){
-                                  return Divider();
-                                },
-                              );
-                            }
-                          ),
+                          child: Observer(builder: (_) {
+                            return ListView.separated(
+                              itemCount: listStore.toDoList.length,
+                              itemBuilder: (_, index) {
+                                final toDo = listStore.toDoList[index];
+                                return Observer(
+                                  builder: (_) {
+                                    return ListTile(
+                                      title: Text(
+                                        toDo.title,
+                                        style: TextStyle(
+                                          decoration: toDo.done
+                                            ? TextDecoration.lineThrough
+                                            : null,
+                                          color: toDo.done
+                                            ? Theme.of(context).primaryColor
+                                            : Colors.teal[900]
+                                        ),
+                                      ),
+                                      onTap: toDo.toggleDone,
+                                    );
+                                  },
+                                );
+                              },
+                              separatorBuilder: (_, __) {
+                                return Divider();
+                              },
+                            );
+                          }),
                         ),
                       ],
                     ),
