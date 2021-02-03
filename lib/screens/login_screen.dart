@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
+import 'package:provider/provider.dart';
 
 import '../stores/login_store.dart';
 import '../widgets/custom_icon_button.dart';
@@ -13,18 +14,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  LoginStore loginStore = LoginStore();
+  LoginStore loginStore;
   ReactionDisposer disposer;
   
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    loginStore = Provider.of<LoginStore>(context);
     disposer = reaction(
       (_) => loginStore.loggedIn, 
       (loggedIn) {
         if (loginStore.loggedIn) {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (_) => ListScreen()));
+            MaterialPageRoute(builder: (_) => ListScreen())
+          );
         }
       }
     );
@@ -46,15 +49,17 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                Observer(builder: (_) {
-                  return CustomTextField(
-                    hint: 'E-mail',
-                    prefix: Icon(Icons.account_circle),
-                    textInputType: TextInputType.emailAddress,
-                    onChanged: loginStore.setEmail,
-                    enabled: !loginStore.loading,
-                  );
-                }),
+                Observer(
+                  builder: (_) {
+                    return CustomTextField(
+                      hint: 'E-mail',
+                      prefix: Icon(Icons.account_circle),
+                      textInputType: TextInputType.emailAddress,
+                      onChanged: loginStore.setEmail,
+                      enabled: !loginStore.loading,
+                    );
+                  }
+                ),
                 const SizedBox(height: 16),
                 Observer(
                   builder: (_) {

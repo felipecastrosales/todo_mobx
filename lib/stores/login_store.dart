@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+
 part 'login_store.g.dart';
 
 class LoginStore = _LoginStore with _$LoginStore;
@@ -36,11 +37,13 @@ abstract class _LoginStore with Store {
     await Future.delayed(Duration(seconds: 2));
     loading = false;
     loggedIn = true;
+    email = '';
+    password = '';
   }
 
   @computed
   bool get isEmailValid => RegExp(
-      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
       .hasMatch(email);
 
   @computed
@@ -50,4 +53,8 @@ abstract class _LoginStore with Store {
   Function get loginPressed =>
       (isEmailValid && isPasswordValid && !loading) ? login : null;
 
+  @action
+  void logout() {
+    loggedIn = false;
+  }
 }
