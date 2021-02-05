@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="" width="" alt=""/>
+      <img src="https://miro.medium.com/max/2560/0*2G9zqliRAL8JsulT" width="50%" alt="Mob-X Logo"/>
 </p>
 
 <h1 align="center">Todo-MobX</h1>
@@ -22,20 +22,26 @@
 <h2 align="center">About 📖</h2>
    
 <p align="center">
-   This is a simple Task List application developed with Flutter using Mob-X.
+   This is a simple ToDo App developed with Flutter using <a href="https://medium.com/flutterdevs/working-with-mobx-in-flutter-6a56dbff7027">Mob-X</a>, where I had a great introduction to how it works, is a very simple, fast, easy and practical to use state manager.
 </p>
 
 ---
 
 <h2 align="center">Preview 📱</h2>
 
-   > * In development
+   <p align="center">
+      <img src="assets/demos/virtualstoredemo.gif" width="400" alt="Virtual Store Demo">
+   </p>
+
 ---
 
 <h2 align="center">Challenges and Learnings along the way 🤯</h2>
 
-   > * In development
-
+<p align="center">
+   Knowing something new usually brings us many challenges. And so, they come, and our mission is to solve problems, not just as programmers. And with it, the new one I met was Mob-X.<br>
+   At first it was a challenge, because I had only done half of the app, and it came as sensational opportunity that I couldn't pass up. Anyway, understanding Mob-X and how it works in simple and practical, using your awesome Core Concept.<br>
+   This was undoubtedly the State Manager that I enj using most so far, but there are still a few more to discover, so let's continue with this learning, which be continous!
+</p>
 ---
 
 <h2 align="center">How to Use 🤔</h2>
