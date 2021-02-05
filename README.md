@@ -45,6 +45,7 @@
    At first it was a challenge, because I had only done half of the app, and it came as sensational opportunity that I couldn't pass up. Anyway, understanding Mob-X and how it works in simple and practical, using your awesome Core Concept.<br>
    This was undoubtedly the State Manager that I enj using most so far, but there are still a few more to discover, so let's continue with this learning, which be continous!
 </p>
+
 ---
 
 <h2 align="center">How to Use 🤔</h2>
