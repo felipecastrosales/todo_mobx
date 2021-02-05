@@ -30,7 +30,10 @@
 <h2 align="center">Preview 📱</h2>
 
    <p align="center">
-      <img src="assets/demos/virtualstoredemo.gif" width="400" alt="Virtual Store Demo">
+      <img src=
+      "https://user-images.githubusercontent.com/59374587/106976993-38943a80-6738-11eb-8da2-ea06861f97e0.gif" 
+      width="400" 
+      alt="ToDo-MobX Demo">
    </p>
 
 ---
