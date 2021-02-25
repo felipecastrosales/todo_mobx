@@ -32,7 +32,7 @@
    <p align="center">
       <img src=
       "https://user-images.githubusercontent.com/59374587/106976993-38943a80-6738-11eb-8da2-ea06861f97e0.gif" 
-      width="400" 
+      width="250" 
       alt="ToDo-MobX Demo">
    </p>
 
@@ -93,7 +93,7 @@
 
    ---
 
-   >This project was developed with ❤️ by **[@Felipe Sales](https://www.linkedin.com/in/felipecastrosales/)**, with the instructor **[Daniel Ciolfi](https://linkedin.com/in/danielciolfi)**, in the course  **["Creating Android and iOS Apps with Flutter - Create 16 Apps"](https://www.udemy.com/course/curso-completo-flutter-app-android-ios)** on **[Udemy](https://www.udemy.com/)**.<br>
+   >This project was developed with ❤️ by **[@Felipe Sales](https://www.linkedin.com/in/felipecastrosales/)**, with the instructor **[Daniel Ciolfi](https://linkedin.com/in/danielciolfi)**, in the course  **["Creating Android and iOS Apps with Flutter - Create 16 Apps"](https://www.udemy.com/course/curso-completo-flutter-app-android-ios/?referralCode=1355952A966260D40D18)** on **[Udemy](https://www.udemy.com/)**.<br>
    If it helped you, give ⭐, contribute, it will help me too 😉
 
 ---
