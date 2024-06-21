@@ -54,10 +54,10 @@
    First of all, correctly configure the Flutter development environment on your machine, see https://flutter.dev/docs/get-started/install
    
    - Clone this repository:
-   $ git clone https://github.com/felipecastrosales/todo-mobx todo-mobx
+   $ git clone https://github.com/felipecastrosales/todo_mobx
 
    - Enter in directory:
-   $ cd todo-mobx
+   $ cd todo_mobx
 
    - For install dependencies:
    $ flutter pub get
