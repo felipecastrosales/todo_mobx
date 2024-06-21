@@ -2,9 +2,9 @@ import 'package:mobx/mobx.dart';
 
 part 'login_store.g.dart';
 
-class LoginStore = _LoginStore with _$LoginStore;
+class LoginStore = LoginStoreBase with _$LoginStore;
 
-abstract class _LoginStore with Store {
+abstract class LoginStoreBase with Store {
   @observable
   String email = '';
 
@@ -34,7 +34,7 @@ abstract class _LoginStore with Store {
   @action
   Future<void> login() async {
     loading = true;
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 2));
     loading = false;
     loggedIn = true;
     email = '';
@@ -50,7 +50,7 @@ abstract class _LoginStore with Store {
   bool get isPasswordValid => password.length >= 6;
 
   @computed
-  Function get loginPressed =>
+  Function? get loginPressed =>
       (isEmailValid && isPasswordValid && !loading) ? login : null;
 
   @action
