@@ -6,32 +6,32 @@ part of 'login_store.dart';
 // StoreGenerator
 // **************************************************************************
 
-// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
+// ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
-mixin _$LoginStore on _LoginStore, Store {
-  Computed<bool> _$isEmailValidComputed;
+mixin _$LoginStore on LoginStoreBase, Store {
+  Computed<bool>? _$isEmailValidComputed;
 
   @override
   bool get isEmailValid =>
       (_$isEmailValidComputed ??= Computed<bool>(() => super.isEmailValid,
-              name: '_LoginStore.isEmailValid'))
+              name: 'LoginStoreBase.isEmailValid'))
           .value;
-  Computed<bool> _$isPasswordValidComputed;
+  Computed<bool>? _$isPasswordValidComputed;
 
   @override
   bool get isPasswordValid =>
       (_$isPasswordValidComputed ??= Computed<bool>(() => super.isPasswordValid,
-              name: '_LoginStore.isPasswordValid'))
+              name: 'LoginStoreBase.isPasswordValid'))
           .value;
-  Computed<Function> _$loginPressedComputed;
+  Computed<Function?>? _$loginPressedComputed;
 
   @override
-  Function get loginPressed =>
-      (_$loginPressedComputed ??= Computed<Function>(() => super.loginPressed,
-              name: '_LoginStore.loginPressed'))
+  Function? get loginPressed =>
+      (_$loginPressedComputed ??= Computed<Function?>(() => super.loginPressed,
+              name: 'LoginStoreBase.loginPressed'))
           .value;
 
-  final _$emailAtom = Atom(name: '_LoginStore.email');
+  late final _$emailAtom = Atom(name: 'LoginStoreBase.email', context: context);
 
   @override
   String get email {
@@ -46,7 +46,8 @@ mixin _$LoginStore on _LoginStore, Store {
     });
   }
 
-  final _$passwordAtom = Atom(name: '_LoginStore.password');
+  late final _$passwordAtom =
+      Atom(name: 'LoginStoreBase.password', context: context);
 
   @override
   String get password {
@@ -61,7 +62,8 @@ mixin _$LoginStore on _LoginStore, Store {
     });
   }
 
-  final _$passwordVisibleAtom = Atom(name: '_LoginStore.passwordVisible');
+  late final _$passwordVisibleAtom =
+      Atom(name: 'LoginStoreBase.passwordVisible', context: context);
 
   @override
   bool get passwordVisible {
@@ -76,7 +78,8 @@ mixin _$LoginStore on _LoginStore, Store {
     });
   }
 
-  final _$loadingAtom = Atom(name: '_LoginStore.loading');
+  late final _$loadingAtom =
+      Atom(name: 'LoginStoreBase.loading', context: context);
 
   @override
   bool get loading {
@@ -91,7 +94,8 @@ mixin _$LoginStore on _LoginStore, Store {
     });
   }
 
-  final _$loggedInAtom = Atom(name: '_LoginStore.loggedIn');
+  late final _$loggedInAtom =
+      Atom(name: 'LoginStoreBase.loggedIn', context: context);
 
   @override
   bool get loggedIn {
@@ -106,45 +110,58 @@ mixin _$LoginStore on _LoginStore, Store {
     });
   }
 
-  final _$loginAsyncAction = AsyncAction('_LoginStore.login');
+  late final _$loginAsyncAction =
+      AsyncAction('LoginStoreBase.login', context: context);
 
   @override
   Future<void> login() {
     return _$loginAsyncAction.run(() => super.login());
   }
 
-  final _$_LoginStoreActionController = ActionController(name: '_LoginStore');
+  late final _$LoginStoreBaseActionController =
+      ActionController(name: 'LoginStoreBase', context: context);
 
   @override
   void setEmail(String value) {
-    final _$actionInfo =
-        _$_LoginStoreActionController.startAction(name: '_LoginStore.setEmail');
+    final _$actionInfo = _$LoginStoreBaseActionController.startAction(
+        name: 'LoginStoreBase.setEmail');
     try {
       return super.setEmail(value);
     } finally {
-      _$_LoginStoreActionController.endAction(_$actionInfo);
+      _$LoginStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void setPassword(String value) {
-    final _$actionInfo = _$_LoginStoreActionController.startAction(
-        name: '_LoginStore.setPassword');
+    final _$actionInfo = _$LoginStoreBaseActionController.startAction(
+        name: 'LoginStoreBase.setPassword');
     try {
       return super.setPassword(value);
     } finally {
-      _$_LoginStoreActionController.endAction(_$actionInfo);
+      _$LoginStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
   void togglePasswordVisibility() {
-    final _$actionInfo = _$_LoginStoreActionController.startAction(
-        name: '_LoginStore.togglePasswordVisibility');
+    final _$actionInfo = _$LoginStoreBaseActionController.startAction(
+        name: 'LoginStoreBase.togglePasswordVisibility');
     try {
       return super.togglePasswordVisibility();
     } finally {
-      _$_LoginStoreActionController.endAction(_$actionInfo);
+      _$LoginStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void logout() {
+    final _$actionInfo = _$LoginStoreBaseActionController.startAction(
+        name: 'LoginStoreBase.logout');
+    try {
+      return super.logout();
+    } finally {
+      _$LoginStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
